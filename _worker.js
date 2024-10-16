@@ -4328,10 +4328,7 @@ var worker_default = {
               }
             });
           default:
-            url.hostname = "www.speedtest.net";
-            url.protocol = "https:";
-            request = new Request(url, request);
-            return await fetch(request);
+            return new Response("Unauthorized!", { status: 401 });
         }
       } else {
         return url.pathname.startsWith("/tr") ? await trojanOverWSHandler(request) : await vlessOverWSHandler(request);
